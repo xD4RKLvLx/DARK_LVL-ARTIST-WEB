@@ -22,11 +22,51 @@
             padding: 20px;
             opacity: 0;
             animation: fadeIn 1.2s ease-out forwards;
+            position: relative;
         }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        .artist-header {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(138, 43, 226, 0.7);
+            padding: 15px 25px;
+            border-radius: 15px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.6);
+            backdrop-filter: blur(8px);
+            animation: float 3s ease-in-out infinite;
+            overflow: hidden;
+        }
+
+        .artist-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3), transparent 70%);
+            transform: rotate(45deg);
+            animation: shine 4s linear infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @keyframes shine {
+            0% { transform: rotate(45deg) translateX(-100%); }
+            100% { transform: rotate(45deg) translateX(100%); }
         }
 
         .container {
@@ -172,10 +212,12 @@
             .circle { width: 160px; height: 160px; }
             .profile-image { width: 140px; height: 140px; }
             .artist-name { font-size: 2.2rem; }
+            .artist-header { font-size: 1rem; padding: 10px 20px; }
         }
     </style>
 </head>
 <body>
+    <div class="artist-header">Artist Name: Nelson Concepcion</div>
     <div class="container">
         <div class="circle">
             <img src="icon.ico" alt="Foto del artista" class="profile-image">
@@ -195,7 +237,7 @@
             <span class="genre">Dembow</span>
         </div>
 
-        <a href="https://open.spotify.com/artist/XXXXXXXX" target="_blank" class="spotify-btn">
+        <a href="https://open.spotify.com/intl-es/artist/49BqKLmL5N8C7TKxCTXvBm?si=jRgml9-eSNudYAYJmE4JMg" target="_blank" class="spotify-btn">
             Escuchar en Spotify
         </a>
 
