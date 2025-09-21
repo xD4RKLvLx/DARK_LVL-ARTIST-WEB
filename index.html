@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DARK_LVL</title>
+    <title>DARK_LVL - Artista Spotify</title>
     <style>
         * {
             margin: 0;
@@ -19,33 +19,21 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow-x: hidden;
             padding: 20px;
             opacity: 0;
             animation: fadeIn 1.2s ease-out forwards;
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 900px;
             width: 100%;
             text-align: center;
             padding: 40px 20px;
-        }
-
-        .profile {
-            position: relative;
-            margin-bottom: 50px;
         }
 
         .circle {
@@ -58,57 +46,13 @@
             justify-content: center;
             align-items: center;
             box-shadow: 0 0 50px rgba(106, 13, 173, 0.6);
-            position: relative;
             overflow: hidden;
-            animation: pulse 3s infinite ease-in-out, rotate 15s infinite linear;
+            animation: pulse 3s infinite ease-in-out;
         }
 
         @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-                box-shadow: 0 0 50px rgba(106, 13, 173, 0.6);
-            }
-            50% {
-                transform: scale(1.05);
-                box-shadow: 0 0 70px rgba(106, 13, 173, 0.8);
-            }
-        }
-
-        @keyframes rotate {
-            0% {
-                background: linear-gradient(145deg, #6a0dad, #4b0082);
-            }
-            33% {
-                background: linear-gradient(145deg, #4b0082, #6a0dad);
-            }
-            66% {
-                background: linear-gradient(145deg, #6a0dad, #8a2be2);
-            }
-            100% {
-                background: linear-gradient(145deg, #6a0dad, #4b0082);
-            }
-        }
-
-        .circle::before {
-            content: '';
-            position: absolute;
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            background: transparent;
-            border: 2px solid rgba(106, 13, 173, 0.4);
-            animation: ripple 3s infinite ease-in-out;
-        }
-
-        @keyframes ripple {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(1.3);
-                opacity: 0;
-            }
+            0%, 100% { transform: scale(1); box-shadow: 0 0 50px rgba(106, 13, 173, 0.6); }
+            50% { transform: scale(1.05); box-shadow: 0 0 70px rgba(106, 13, 173, 0.8); }
         }
 
         .profile-image {
@@ -116,74 +60,19 @@
             height: 180px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid rgba(255, 255, 255, 0.1);
-            z-index: 2;
-            position: relative;
+            border: 3px solid rgba(255, 255, 255, 0.2);
         }
 
         .artist-name {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            font-weight: 700;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 3px;
             background: linear-gradient(to right, #8a2be2, #9370db);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 2px 10px rgba(138, 43, 226, 0.3);
-        }
-
-        .genres {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .genre {
-            background: rgba(106, 13, 173, 0.2);
-            color: #d8bfd8;
-            padding: 12px 25px;
-            border-radius: 30px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 1px solid rgba(106, 13, 173, 0.5);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .genre::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
-        }
-
-        .genre:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(106, 13, 173, 0.4);
-            background: rgba(106, 13, 173, 0.3);
-        }
-
-        .genre:hover::before {
-            left: 100%;
-        }
-
-        .spotify-logo {
-            margin-top: 40px;
-            opacity: 0.7;
-            transition: opacity 0.3s ease;
-        }
-
-        .spotify-logo:hover {
-            opacity: 1;
+            text-shadow: 0 2px 15px rgba(138, 43, 226, 0.5);
         }
 
         .music-bar {
@@ -191,7 +80,7 @@
             justify-content: center;
             align-items: flex-end;
             height: 40px;
-            margin: 40px auto;
+            margin: 25px auto;
             gap: 3px;
             max-width: 300px;
         }
@@ -205,9 +94,9 @@
 
         .bar:nth-child(1) { height: 10px; animation-delay: 0s; }
         .bar:nth-child(2) { height: 20px; animation-delay: 0.2s; }
-        .bar:nth-child(3) { height: 30px; animation-delay: 0.4s; }
-        .bar:nth-child(4) { height: 40px; animation-delay: 0.6s; }
-        .bar:nth-child(5) { height: 30px; animation-delay: 0.4s; }
+        .bar:nth-child(3) { height: 35px; animation-delay: 0.4s; }
+        .bar:nth-child(4) { height: 45px; animation-delay: 0.6s; }
+        .bar:nth-child(5) { height: 35px; animation-delay: 0.4s; }
         .bar:nth-child(6) { height: 20px; animation-delay: 0.2s; }
         .bar:nth-child(7) { height: 10px; animation-delay: 0s; }
 
@@ -216,100 +105,102 @@
             50% { transform: scaleY(1.5); }
         }
 
+        .genres {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .genre {
+            background: rgba(106, 13, 173, 0.25);
+            color: #d8bfd8;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid rgba(106, 13, 173, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .genre:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 5px 20px rgba(106, 13, 173, 0.5);
+            background: rgba(106, 13, 173, 0.4);
+        }
+
+        .spotify-btn {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 14px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #fff;
+            background: #1DB954;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(29, 185, 84, 0.4);
+        }
+
+        .spotify-btn:hover {
+            background: #1ed760;
+            box-shadow: 0 0 25px rgba(29, 185, 84, 0.7);
+            transform: scale(1.05);
+        }
+
         footer {
-            margin-top: 60px;
-            color: #9370db;
+            margin-top: 50px;
             font-size: 0.9rem;
-            opacity: 0.7;
+            color: #aaa;
+            opacity: 0.8;
+        }
+
+        footer a {
+            color: #9370db;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        footer a:hover {
+            color: #fff;
         }
 
         @media (max-width: 768px) {
-            .circle {
-                width: 170px;
-                height: 170px;
-            }
-            
-            .profile-image {
-                width: 150px;
-                height: 150px;
-            }
-            
-            .artist-name {
-                font-size: 2.2rem;
-            }
-            
-            .genres {
-                gap: 10px;
-            }
-            
-            .genre {
-                padding: 10px 20px;
-                font-size: 0.9rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .circle {
-                width: 150px;
-                height: 150px;
-            }
-            
-            .profile-image {
-                width: 130px;
-                height: 130px;
-            }
-            
-            .artist-name {
-                font-size: 1.8rem;
-            }
-            
-            .genres {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .genre {
-                width: 200px;
-            }
+            .circle { width: 160px; height: 160px; }
+            .profile-image { width: 140px; height: 140px; }
+            .artist-name { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="profile">
-            <div class="circle">
-                <img src="icon.ico " alt="Foto de perfil del artista" class="profile-image">
-            </div>
-            <h1 class="artist-name">DARK_LVL</h1>
-            
-            <div class="music-bar">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-            
-            <div class="genres">
-                <span class="genre">Techno</span>
-                <span class="genre">Rap</span>
-                <span class="genre">Trap</span>
-                <span class="genre">Dembow</span>
-            </div>
+        <div class="circle">
+            <img src="icon.ico" alt="Foto del artista" class="profile-image">
         </div>
-        
-        <div class="spotify-logo">
-            <svg width="100" height="30" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M80 30C80 18.9543 88.9543 10 100 10C111.046 10 120 18.9543 120 30C120 41.0457 111.046 50 100 50C88.9543 50 80 41.0457 80 30Z" fill="#1DB954"/>
-                <path d="M92 30L98 26V34L92 30Z" fill="white"/>
-                <text x="120" y="35" font-family="Arial" font-size="20" font-weight="bold" fill="white">Spotify</text>
-            </svg>
+        <h1 class="artist-name">DARK_LVL</h1>
+
+        <div class="music-bar">
+            <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+            <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+            <div class="bar"></div>
         </div>
-        
+
+        <div class="genres">
+            <span class="genre">Techno</span>
+            <span class="genre">Rap</span>
+            <span class="genre">Trap</span>
+            <span class="genre">Dembow</span>
+        </div>
+
+        <a href="https://open.spotify.com/artist/XXXXXXXX" target="_blank" class="spotify-btn">
+            Escuchar en Spotify
+        </a>
+
         <footer>
-            &copy; Starter Artist-DARK_LVL
+            Contacto: <a href="mailto:darklvl@outlook.com">darklvl@outlook.com</a>
         </footer>
     </div>
 </body>
